@@ -7,11 +7,13 @@ public class Trigger : MonoBehaviour
 {
 
     public GameObject jumpscare;
-   
+    [SerializeField] public AudioSource jumpscaresound;
+
 
     void Start()
     {
        
+
         jumpscare.SetActive(false); //pertama mati
         
 
@@ -23,6 +25,7 @@ public class Trigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             jumpscare.gameObject.SetActive(true);
+            jumpscaresound.Play();
             
 
             StartCoroutine(EndJumpscare());
@@ -39,10 +42,10 @@ public class Trigger : MonoBehaviour
 
     IEnumerator EndJumpscare()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(4.5f);
         jumpscare.gameObject.SetActive(false);
         Destroy(gameObject);
-        
+        jumpscaresound.Stop();
 
     }
 
