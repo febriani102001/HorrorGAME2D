@@ -23,7 +23,7 @@ public class EnemyDestroy : MonoBehaviour
         {
             Destroy(collision.gameObject);
             collision.gameObject.SetActive(false);
-            SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("GameOver2");
 
         }
     }
